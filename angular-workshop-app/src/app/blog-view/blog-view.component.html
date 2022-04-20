@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row my-5">
-        <div class="col-3 mt-5" *ngFor="let post of postsData">
-            <app-blog-post></app-blog-post>
+    <div class="row mt-4">
+        <div class="col-3 mt-4" *ngFor="let post of postsData">
+            <app-blog-post [data]="post"></app-blog-post>
         </div>
     </div>
 </div>

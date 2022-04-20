@@ -1,5 +1,4 @@
-<mat-card>
-    <mat-card-title>Example card</mat-card-title>
-    <mat-card-content>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        aaaaaaaaaaaaaaaaaaaaaaaaaaaa</mat-card-content>
+<mat-card (click)="openPost()">
+    <mat-card-title>{{ data?.title }}</mat-card-title>
+    <mat-card-content>{{ data?.body }}</mat-card-content>
 </mat-card>
