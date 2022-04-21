@@ -5,13 +5,16 @@ import { environment } from 'src/environments/environment';
 import { BlogPostModel } from './blog-post/models/blog-post.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BlogViewResourceService {
-
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient) {}
 
   getPosts(): Observable<BlogPostModel[]> {
     return this.http.get<BlogPostModel[]>(environment.apiUrl + '/posts');
+  }
+
+  getPostById(id: number): Observable<BlogPostModel> {
+    return this.http.get<BlogPostModel>(`${environment.apiUrl}/posts/${id}`);
   }
 }

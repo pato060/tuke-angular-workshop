@@ -1,6 +1,9 @@
+import { BlogPostDetailResolver } from './blog-post-detail/blog-post-detail-resolver.service';
+import { BlogGridComponent } from './blog-grid/blog-grid.component';
+import { BlogPostDetailComponent } from './blog-post-detail/blog-post-detail.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BlogViewResolver } from './blog-view-resolver.service';
+import { BlogGridResolver } from './blog-grid/blog-view-resolver.service';
 import { BlogViewComponent } from './blog-view.component';
 
 const routes: Routes = [
@@ -9,18 +12,25 @@ const routes: Routes = [
     component: BlogViewComponent,
     children: [
       {
-        path: 'posts/:id',
-        loadChildren: () => import('./blog-post/blog-post-detail/blog-post-detail.module').then(m => m.BlogPostDetailModule)
-      }
+        path: '',
+        component: BlogGridComponent,
+        resolve: {
+          posts: BlogGridResolver,
+        },
+      },
+      {
+        path: 'detail/:id',
+        component: BlogPostDetailComponent,
+        resolve: {
+          post: BlogPostDetailResolver,
+        },
+      },
     ],
-    resolve: {
-      posts: BlogViewResolver
-    }
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class BlogViewRoutingModule { }
+export class BlogViewRoutingModule {}

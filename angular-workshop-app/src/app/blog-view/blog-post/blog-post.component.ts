@@ -5,19 +5,18 @@ import { BlogPostModel } from './models/blog-post.model';
 @Component({
   selector: 'app-blog-post',
   templateUrl: './blog-post.component.html',
-  styleUrls: ['./blog-post.component.scss']
+  styleUrls: ['./blog-post.component.scss'],
 })
 export class BlogPostComponent implements OnInit {
-  @Input() data: BlogPostModel;
+  @Input() data!: BlogPostModel;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   openPost(): void {
     if (this.data) {
-      this.router.navigate([`posts/${ this.data?.id }`]);
+      this.router.navigate([`detail/${this.data?.id}`]);
     }
   }
 }
