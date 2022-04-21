@@ -1,13 +1,15 @@
-
 <div class="container">
-    <div class="row mt-4">
-        <div class="col-4 offset-4">
-            <mat-card>
-                <mat-card-title>{{postDetail.title}}</mat-card-title>
-                <mat-card-content>{{postDetail.body}}</mat-card-content>
-                <mat-card-actions>
-                    <button class="btn btn-primary" routerLink="">Posts</button>
-                </mat-card-actions>
+    <div class="row my-5">
+        <div class="col-1">
+            <button mat-icon-button routerLink="" class="d-flex justify-content-center align-items-center">
+                <mat-icon>arrow_back</mat-icon>
+                Go back
+            </button>
+        </div>
+        <div class="col-11">
+            <mat-card class="p-4">
+                <mat-card-title class="mb-4">{{ postDetail.title }}</mat-card-title>
+                <mat-card-content>{{ postDetail.body }}</mat-card-content>
             </mat-card>
         </div>
     </div>
